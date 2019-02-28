@@ -75,6 +75,7 @@ def main():
     
     show = []
     last_slide = None
+    got_it = False
     #Encontra primeira transicao
     for i in range(1, len(slides)):
         tmp = slides[0].interest_factor_slides(slides[i])
@@ -84,10 +85,11 @@ def main():
             slides.pop(0)
             print(slides[i].photos.id)
             slides.pop(i)
+            got_it = True
             break
-        elif tmp > 0:
-            raise 'trata disto burro'
 
+    if got_it == False:
+        raise 'burro'
 
     #Encontra as outras transicoes
     iteracoes = int(len(slides)/2)
